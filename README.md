@@ -32,6 +32,16 @@ TSDR offers the capability to collect a variety of stats in ODL and persist them
 
 The ControllerMetricsCollector feature previously used the third-party Sigar library to collect JVM stats, but for the requirements of the Cluster App project (everything has to be packaged within ODL) the Sigar dependency was removed and all the stats are now collected using JVM MBeans.
 
+Example of stat collection:
+```
+  protected void insertMemorySample() {
+    String s = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage().toString();
+    int usedIndex = s.indexOf("used");
+    long memValue = Integer.parseInt(s.substring(usedIndex + 7, s.indexOf('(', usedIndex)));
+    insertToTSDR("Heap:Memory:Usage", "Controller", new BigDecimal(memValue));
+  }
+```
+
 ## Stats Reflector
 The Stats Reflector was implemented specifically for the Cluster App project. It takes in requests to collect stats from a particular ODL node in the cluster. This is needed because the UI cannot directly make requests to every ODL node due to the same-origin policy. Therefore, the Stats Reflector runs on one of the ODL nodes (on which the UI also runs), and re-routes requests to the specified ODL node.
 
