@@ -10,18 +10,30 @@ ODL Application (including GUI) to manage/view stats and metrics specific to the
 - Tyler Levine
 
 ## Overview - Metz
-
 - add text on requirement/solution
 - add text/picture on architecture
 - include components (database, tsdr, stats reflector, collector)
 - general flow of data
 
 ## TSDR and ControllerMetricsCollector
+TSDR: Time Series Data Repository, more info here: https://wiki.opendaylight.org/view/TSDR:Main
 
+TSDR offers the capability to collect a variety of stats in ODL and persist them in a database. For the Cluster App project, the interest was specifically in using TSDR to collect each ODL node's JVM stats. This was done in the ControllerMetricsCollector feature, which already existed in TSDR but was expanded to support the stats required by the Cluster App project. The following stats are now collected in TSDR:
 
+- CPU Usage (Machine)
+- CPU Usage (Controller)
+- Heap Memory Usage
+- NonHeap Memory Usage
+- Current Loaded Classes
+- Total Loaded Classes
+- Live Thread Count
+- Live Daemon Thread Count
+- Peak Thread Count 
+
+The ControllerMetricsCollector feature previously used the third-party Sigar library to collect JVM stats, but for the requirements of the Cluster App project (everything has to be packaged within ODL) the Sigar dependency was removed and all the stats are now collected using JVM MBeans.
 
 ## Stats Reflector
-The Stats Reflector takes in requests to collect stats from a particular ODL node in the cluster. This is needed because the UI cannot directly make requests to every ODL node due to the same-origin policy. Therefore, the Stats Reflector runs on one of the ODL nodes (on which the UI also runs), and re-routes requests to the specified ODL node.
+The Stats Reflector was implemented specifically for the Cluster App project. It takes in requests to collect stats from a particular ODL node in the cluster. This is needed because the UI cannot directly make requests to every ODL node due to the same-origin policy. Therefore, the Stats Reflector runs on one of the ODL nodes (on which the UI also runs), and re-routes requests to the specified ODL node.
 
 The Stats Reflector provides the following RPCs to be used to collect stats (all are POST requests). The header is the same for all:
 ```
@@ -42,7 +54,7 @@ Body:
 }
 ```
 
-Output:
+Response:
 ```
 {
   "output": {
@@ -84,7 +96,7 @@ Body:
 }
 ```
 
-Output:
+Response:
 ```
 {
   "output": {
@@ -147,7 +159,7 @@ Body:
 }
 ```
 
-Output:
+Response:
 ```
 {
   "output": {
@@ -179,7 +191,7 @@ Body:
 }
 ```
 
-Output:
+Response:
 ```
 {
   "output": {
@@ -206,7 +218,7 @@ Body:
 }
 ```
 
-Output:
+Response:
 ```
 {
   "output": {
@@ -235,9 +247,12 @@ Output:
 ```
 
 ## GUI - Metz
-
 - mockups
 - screenshots
 
 ## Pointers to Additional References
-
+- OpenDaylight Clustering: https://wiki.opendaylight.org/view/Running_and_testing_an_OpenDaylight_Cluster
+- MD-SAL Clustering Internals: http://events.linuxfoundation.org/sites/events/files/slides/MD-SAL%20Clustering%20Internals.pdf
+- TSDR Getting Started: https://wiki.opendaylight.org/view/TSDR_Getting_Started
+- TSDR User Guide: https://github.com/opendaylight/docs/blob/master/manuals/user-guide/src/main/asciidoc/tsdr/tsdr-user-guide.adoc
+- TSDR Query API Design: https://wiki.opendaylight.org/view/TSDR_Query_API_Design
