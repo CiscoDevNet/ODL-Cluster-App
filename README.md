@@ -16,10 +16,14 @@ ODL Application (including GUI) to manage/view stats and metrics specific to the
 - include components (database, tsdr, stats reflector, collector)
 - general flow of data
 
-## Stats Reflector
-The stats reflector takes in requests to collect stats from a particular ODL node in the cluster. This is needed because the UI cannot directly make requests to every ODL node due to browser security issues. Therefore, the stats reflector runs on one of the ODL nodes (on which the UI also runs), and re-routes requests to the specified ODL node.
+## TSDR and ControllerMetricsCollector
 
-The following RPCs are available to use to collect stats (all are POST requests). The header is the same for all:
+
+
+## Stats Reflector
+The Stats Reflector takes in requests to collect stats from a particular ODL node in the cluster. This is needed because the UI cannot directly make requests to every ODL node due to the same-origin policy. Therefore, the Stats Reflector runs on one of the ODL nodes (on which the UI also runs), and re-routes requests to the specified ODL node.
+
+The Stats Reflector provides the following RPCs to be used to collect stats (all are POST requests). The header is the same for all:
 ```
 Accept: application/json
 Authorization: Basic YWRtaW46YWRtaW4=
@@ -27,7 +31,7 @@ Content-Type: application/json
 ```
 
 ### Instrumentation RPC
-Returns performance information of all the other RPCs.
+Returns performance information about all the other RPCs.
 
 Request URL: `http://localhost:8181/restconf/operations/stats-reflector:get-instrumentation`  
 
@@ -69,7 +73,7 @@ Output:
 ```
 
 ### Cluster Members RPC
-Returns cluster members, their IP addresses, and local shards.
+Returns info about cluster members: IP address, name, and local shards.
 
 Request URL: `http://localhost:8181/restconf/operations/stats-reflector:get-cluster-members`  
 
@@ -127,7 +131,7 @@ Output:
 ```
 
 ### TSDR Stats RPC
-Returns TSDR stats for particular cluster member. Note: TSDR collects stats every 5 seconds. A request to the stats reflector returns all new data points since the last request was made.
+Returns TSDR stats for a particular cluster member and metric name. Note: TSDR collects stats every 5 seconds. A request to the stats reflector returns all new data points since the last request was made.
 
 Request URL: `http://localhost:8181/restconf/operations/stats-reflector:get-stats`  
 
@@ -161,7 +165,7 @@ Output:
 ```
 
 ### GeneralRuntimeInfo MBean RPC
-Returns GeneralRuntimeInfo MBean for particular cluster member.
+Returns GeneralRuntimeInfo MBean for a particular cluster member and status (operational or config).
 
 Request URL: `http://localhost:8181/restconf/operations/stats-reflector:get-general-runtime-info-mbean`  
 
@@ -186,7 +190,7 @@ Output:
 ```
 
 ### Shard MBean RPC
-Returns Shard MBean for particular cluster member.
+Returns Shard MBean for a particular cluster member, status (operational or config), and shard.
 
 Request URL: `http://localhost:8181/restconf/operations/stats-reflector:get-shard-mbean`  
 
