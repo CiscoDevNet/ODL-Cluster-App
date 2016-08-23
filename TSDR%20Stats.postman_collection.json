@@ -1,0 +1,83 @@
+{
+	"favoriters": [
+		{
+			"id": "773507"
+		}
+	],
+	"owner": "773507",
+	"lastUpdatedBy": "773507",
+	"lastRevision": 466610173,
+	"team": null,
+	"id": "393006b6-a620-bbba-aa8a-1060f7029c14",
+	"name": "TSDR Stats",
+	"description": "",
+	"order": [
+		"4469b38b-5481-9e96-42a5-bff071665430",
+		"6b8b6c10-18b0-51e4-0f34-d59260ddbf0a",
+		"830957a6-df9c-cdb3-0f82-f80ab32aca79"
+	],
+	"folders": [],
+	"hasRequests": true,
+	"requests": [
+		{
+			"folder": null,
+			"id": "4469b38b-5481-9e96-42a5-bff071665430",
+			"name": "TSDR - member 1",
+			"dataMode": "urlencoded",
+			"data": [],
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "",
+			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://172.17.0.2:8181/tsdr/metrics/query?tsdrkey=[NID=][DC=EXTERNAL][MN=][RK=]&from=0&until=240000000000",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": "basicAuth",
+			"helperAttributes": "{\"id\":\"basic\",\"username\":\"admin\",\"password\":\"admin\",\"saveToRequest\":true}",
+			"responses": [],
+			"collectionId": "393006b6-a620-bbba-aa8a-1060f7029c14"
+		},
+		{
+			"folder": null,
+			"id": "6b8b6c10-18b0-51e4-0f34-d59260ddbf0a",
+			"name": "TSDR - member 2",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "",
+			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://172.17.0.3:8181/tsdr/metrics/query?tsdrkey=[NID=][DC=EXTERNAL][MN=][RK=]&from=0&until=240000000000",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": "basicAuth",
+			"helperAttributes": "{\"id\":\"basic\",\"username\":\"admin\",\"password\":\"admin\",\"saveToRequest\":true}",
+			"responses": [],
+			"collectionId": "393006b6-a620-bbba-aa8a-1060f7029c14"
+		},
+		{
+			"folder": null,
+			"id": "830957a6-df9c-cdb3-0f82-f80ab32aca79",
+			"name": "TSDR - member 3",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": null,
+			"description": "",
+			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://172.17.0.4:8181/tsdr/metrics/query?tsdrkey=[NID=][DC=EXTERNAL][MN=][RK=]&from=0&until=240000000000",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": "basicAuth",
+			"helperAttributes": "{\"id\":\"basic\",\"username\":\"admin\",\"password\":\"admin\",\"saveToRequest\":true}",
+			"responses": [],
+			"collectionId": "393006b6-a620-bbba-aa8a-1060f7029c14"
+		}
+	]
+}
