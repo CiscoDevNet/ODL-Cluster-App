@@ -48,7 +48,7 @@ Figure 1.
 
 - Application GUI on top based on DLUX UI framework augmented with UI metric display frameworks. 
 
-- Application GUI is started on the local ODL (#1 in the picture). It is straightforward to gathers stats from ODL #1.
+- Application GUI is started on the local ODL (#1 in the picture). It is straightforward to gathers stats from ODL #1. ODL Node #1 cannot speak directly to ODL Nodes #2 and #3 due to same origin 
 
 
 
