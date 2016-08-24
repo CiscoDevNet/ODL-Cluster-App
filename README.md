@@ -14,7 +14,7 @@ OpenDaylight (ODL) is an open-source application development and delivery platfo
 ## Overview
 
 ODL Nodes can be configured in a cluster offering scalability and resilency for applications present in different types of domains.
-The members of the cluster each generate stats on their configured and operational state. Independent of the domain, operating a cluster of ODL nodes in particular to gathering stats is currently no-op. At best scripts can be hacked up to collect and process stats for each node. This is not sustainable.
+The members of the cluster each generate stats (aka metrics) on their configured and operational state. Independent of the domain, operating a cluster of ODL nodes in particular to gathering stats is currently a no-op. At best scripts can be hacked up to collect and process stats for each node. This is not sustainable and requires way too much effort.
 
 A requirement exists for a simple method that abstracts away the details of the cluster and enables easy collection and visualization of cluster stats. The solution is the ODL Cluster Applications and Console.
 
@@ -22,8 +22,9 @@ The architecture of the application is illustrated in figure 1. Depicted initial
 
 Some details regarding the architecture:
 
-- each ODL node is configured with Time Series Data Repository (TSDR) and a database (HSQLDB) to persist stats data. This data base is shown becuase it is available in ODL (as is TSDR). Other databases and their attendent configuration are possible.
-- collector configured to recognize different stats and send them to the TSDR. The specific collector used with this solution processes stats related to collector operational and configured metrics. 
+- each ODL node is configured with Time Series Data Repository (TSDR) and a database (HSQLDB) to persist stats data. This data base is shown becuase it is available in ODL (as is TSDR). Other databases and their attendent configuration are possible. TSDR interfaces wiht the database to persist stats and presents northbound APIs so apps can read the stats. Any application therefore DOES NOT need details of the specific database internals (i.e. schema). NOTE that the stats processed by TSDR and stored in the database are specific to the local ODL node only.
+
+- each ODL nodes is configured with a collector to recognize specific stats and send them to the TSDR. The collector (called controller metrics or collector or CMC)) used with this solution processes stats related to ODL node function (i.e. CPU%, memory consumption, etc.) metrics.  
 
  
 ![](odl-controller-cluster-app-arch.jpg)
