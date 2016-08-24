@@ -15,7 +15,9 @@ OpenDaylight (ODL) is an open-source application development and delivery platfo
 - add text on requirement/solution
 - add text/picture on architecture
 - 
-[Architecture](https://github.com/CiscoDevNet/ODL-Cluster-App/blob/master/odl-controller-cluster-app-arch.jpg)
+![](odl-controller-cluster-app-arch.jpg)
+
+
 - include components (database, tsdr, stats reflector, collector)
 - general flow of data
 
