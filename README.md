@@ -20,18 +20,18 @@ A requirement exists for a simple method that abstracts away the details of the 
 
 The architecture of the application is illustrated in figure 1. Depicted initially is a 3 node cluster.
 
+
 Some details regarding the architecture:
 
 - each ODL node is configured with Time Series Data Repository (TSDR) and a database (HSQLDB) to persist stats data. This data base is shown becuase it is available in ODL (as is TSDR). Other databases and their attendent configuration are possible. TSDR interfaces wiht the database to persist stats and presents northbound APIs so apps can read the stats. Any application therefore DOES NOT need details of the specific database internals (i.e. schema). NOTE that the stats processed by TSDR and stored in the database are specific to the local ODL node only.
 
-- each ODL nodes is configured with a collector to recognize specific stats and send them to the TSDR. The collector (called controller metrics or collector or CMC)) used with this solution processes stats related to ODL node function (i.e. CPU%, memory consumption, etc.) metrics.  
+- each ODL nodes is configured with a collector to recognize specific stats and send them to the TSDR. The collector (called controller metrics or collector or CMC)) used with this solution processes stats related to ODL node function (i.e. CPU%, memory consumption, etc.) metrics. Other stats not processed by TSDR can be retrieved. 
 
  
 ![](odl-controller-cluster-app-arch.jpg)
+Figure 1.
 
 
-- include components (database, tsdr, stats reflector, collector)
-- general flow of data
 
 ## TSDR and ControllerMetricsCollector
 TSDR: Time Series Data Repository, more info here: https://wiki.opendaylight.org/view/TSDR:Main
