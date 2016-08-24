@@ -302,9 +302,12 @@ Response:
 }
 ```
 
-## GUI - Metz
-- mockups
-- screenshots
+## GUI
+The application can be started from karaf and will be based on the DLUX UI framework. The figure below is a mockup placeholder for teh cluster application and console GUI.
+
+![](stats-hack-mockup.png)
+
+The actual GUI is under development with details to be posted beginning in September 2016.
 
 ## Pointers to Additional References
 - OpenDaylight Clustering: https://wiki.opendaylight.org/view/Running_and_testing_an_OpenDaylight_Cluster
