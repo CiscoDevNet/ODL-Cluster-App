@@ -22,7 +22,7 @@ A requirement exists for a simple method that abstracts away the details of the 
 The architecture of the application is illustrated in figure 1. Depicted initially is a 3 node cluster.
 
 
-#Some details regarding the architecture:
+###Some details regarding the architecture:
 
 - each ODL node is configured with Time Series Data Repository (TSDR) and a database (HSQLDB).
 
@@ -43,6 +43,14 @@ The architecture of the application is illustrated in figure 1. Depicted initial
 
 ![](odl-controller-cluster-app-arch.jpg)
 Figure 1.
+
+###Some detals on the ODL Cluster Application and Console components:
+
+- Application GUI on top based on DLUX UI framework augmented with UI metric display frameworks. 
+
+- Application GUI is started on the local ODL (#1 in the picture). It is straightforward to gathers stats from ODL #1.
+
+
 
 
 
