@@ -4,10 +4,10 @@ OpenDaylight (ODL) is an open-source application development and delivery platfo
 
 ## Team Members
 - Daniel Chai
+- Tyler Levine
 - Jan Medved
 - Chris Metz
 - Daniel Malachovsky
-- Tyler Levine
 - YuLing Chen
 - Sharon Aicler
 
