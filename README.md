@@ -18,10 +18,11 @@ The members of the cluster each generate stats (aka metrics) on their configured
 
 A requirement exists for a simple method that abstracts away the details of the cluster and enables easy collection and visualization of cluster stats. The solution is the ODL Cluster Applications and Console.
 
+
 The architecture of the application is illustrated in figure 1. Depicted initially is a 3 node cluster.
 
 
-Some details regarding the architecture:
+#Some details regarding the architecture:
 
 - each ODL node is configured with Time Series Data Repository (TSDR) and a database (HSQLDB).
 
@@ -38,8 +39,11 @@ Some details regarding the architecture:
 
 
  
+
+
 ![](odl-controller-cluster-app-arch.jpg)
 Figure 1.
+
 
 
 
