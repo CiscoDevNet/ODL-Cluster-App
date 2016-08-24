@@ -48,7 +48,11 @@ Figure 1.
 
 - Application GUI on top based on DLUX UI framework augmented with UI metric display frameworks. 
 
-- Application GUI is started on the local ODL (#1 in the picture). It is straightforward to gathers stats from ODL #1. ODL Node #1 cannot speak directly to ODL Nodes #2 and #3 due to same origin 
+- Application GUI is started on the local ODL (#1 in the picture). It is straightforward to gathers stats from ODL #1. ODL Node #1 cannot speak directly to ODL Nodes #2 and #3 due to web browser security same origin policy.
+
+- Stats reflector is present in ODL #1 so that TSDR REST requests/responses can be relayed to specific ODL nodes in the cluster. Now it is possible for the application GUI to request and receive stats from all nodes in the cluster.
+
+Notes on the application flow are shown in the figure. More details follow.
 
 
 
