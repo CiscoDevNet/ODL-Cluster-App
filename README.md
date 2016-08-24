@@ -11,10 +11,15 @@ OpenDaylight (ODL) is an open-source application development and delivery platfo
 - YuLing Chen
 - Sharon Aicler
 
-## Overview - Metz
-- add text on requirement/solution
-- add text/picture on architecture
-- 
+## Overview
+
+ODL Nodes can be configured in a cluster offering scalability and resilency for applications present in different types of domains.
+The members of the cluster each generate stats on their configured and operational state. Independent of the domain, operating a cluster of ODL nodes in particular to gathering stats is currently no-op. At best scripts can be hacked up to collect and process stats for each node. This is not sustainable.
+
+A requirement exists for a simple method that abstracts away the details of the cluster and enables collection and visualization of cluster stats. The solution is the ODL Cluster Applications and Console.
+
+The architecture of the application is illustrated in figure 1. Depicted initially is a 3 node cluster.
+ 
 ![](odl-controller-cluster-app-arch.jpg)
 
 
