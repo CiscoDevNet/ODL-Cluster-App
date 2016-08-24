@@ -1,6 +1,6 @@
 # OpenDaylight Cluster Application and Console
 
-ODL Application (including GUI) to manage/view stats and metrics specific to the operation of a cluster of ODL Nodes.
+OpenDaylight (ODL) is an open-source application development and delivery platform. ODL nodes can be configured in a cluster so as the provide scalability and resiliency in domains (e.g. IoT network) where it being deployed. The ODL Cluster Application and Console is an app designed to make it much easier for an operator to manage, gather and view configuration and operational data from an ODL cluster.
 
 ## Team Members
 - Daniel Chai
@@ -8,6 +8,8 @@ ODL Application (including GUI) to manage/view stats and metrics specific to the
 - Chris Metz
 - Daniel Malachovsky
 - Tyler Levine
+- YuLing Chen
+- Sharon Aicler
 
 ## Overview - Metz
 - add text on requirement/solution
