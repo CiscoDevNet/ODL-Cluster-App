@@ -301,6 +301,11 @@ Response:
   }
 }
 ```
+# Anomoly Note 1: PendingTxCommitQueueSize - if this is growing then commits are backing up, either the shard is taking too long to process something or transactions are failing to replicate to the followers (seen both issues). Can be presented in shard display with some sort of visual notification indicating problem.
+
+# Anomoly Note2: Under well-behaved operation where commits are replicating to all nodes, LastIndex == LastApplied == CommitIndex == each follower's matchIndex. Also ReplicatedToAllIndex == LastApplied - 1, InMemoryJournalLogSize == 1. However CommitIndex and LastApplied should still progress.
+
+
 
 ## GUI
 The application can be started from karaf and will be based on the DLUX UI framework. The figure below is a mockup placeholder for teh cluster application and console GUI.
