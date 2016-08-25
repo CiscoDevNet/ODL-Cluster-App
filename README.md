@@ -258,7 +258,7 @@ Response:
 ```
 
 ### Shard MBean RPC
-Returns Shard MBean for a particular cluster member, status (operational or config), and shard.
+Returns Shard MBean for a particular cluster member, status (operational or config), and shard. API for anomoly stats in Shard display.
 
 Request URL: `http://localhost:8181/restconf/operations/stats-reflector:get-shard-mbean`  
 
@@ -294,7 +294,7 @@ Response:
     "timestamp": "1471973782",
     "last-applied": 0,
     "last-index": 0,
-    "pending-tx-commit-queue-size": 0, __<-- If this increases there is a problem__
+    "pending-tx-commit-queue-size": 0, <-- If this increases there is a problem__
     "commit-index": 0,
     "replicated-to-all-index": -1,
     "raft-state": "Leader" <-- he is the leader for inventory shard. Rest are followers.
@@ -304,6 +304,8 @@ Response:
 _Anomoly Note 1: PendingTxCommitQueueSize - if this is growing then commits are backing up, either the shard is taking too long to process something or transactions are failing to replicate to the followers (seen both issues). Can be presented in shard display with some sort of visual notification indicating problem._
 
 Anomoly Note2: Under well-behaved operation where commits are replicating to all nodes, LastIndex == LastApplied == CommitIndex == each follower's matchIndex. Also ReplicatedToAllIndex == LastApplied - 1, InMemoryJournalLogSize == 1. However CommitIndex and LastApplied should still progress.
+
+
 
 
 
