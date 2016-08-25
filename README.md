@@ -305,7 +305,8 @@ Notes from Tom Pantelis, mailto:tompantelis@gmail.com
 
 _Anomoly Note 1: PendingTxCommitQueueSize - if this is growing then commits are backing up, either the shard is taking too long to process something or transactions are failing to replicate to the followers (seen both issues). Can be presented in shard display with some sort of visual notification indicating problem._
 
-_Anomoly Note2: Under well-behaved operation where commits are replicating to all nodes, LastIndex == LastApplied == CommitIndex == each follower's matchIndex. Also ReplicatedToAllIndex == LastApplied - 1, InMemoryJournalLogSize == 1. However CommitIndex and LastApplied should still progress._
+_Anomoly Note2: Under well-behaved operation where commits are replicating to all nodes, LastIndex == LastApplied == CommitIndex == each follower's matchIndex. Also ReplicatedToAllIndex == LastApplied - 1, InMemoryJournalLogSize == 1. If a follower is behind (eg disconnected), it's matchIndex will lag (and timeSinceLastActivity will increase) as will ReplicatedToAllIndex and the InMemoryJournalLogSize will grow. However CommitIndex and LastApplied should still progress.
+_
 
 
 
