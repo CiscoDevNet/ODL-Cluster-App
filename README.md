@@ -99,7 +99,7 @@ Content-Type: application/json
 ```
 
 ### Instrumentation RPC
-Returns performance information about all the other RPCs.
+Returns performance information about all the other RPCs. __Used in Shard display and Stats Display.
 
 Request URL: `http://localhost:8181/restconf/operations/stats-reflector:get-instrumentation`  
 
@@ -141,7 +141,7 @@ Response:
 ```
 
 ### Cluster Members RPC
-Returns info about cluster members: IP address, name, and local shards.
+Returns info about cluster members: IP address, name, and local shards. Used in Shard Display
 
 Request URL: `http://localhost:8181/restconf/operations/stats-reflector:get-cluster-members`  
 
@@ -199,7 +199,7 @@ Response:
 ```
 
 ### TSDR Stats RPC
-Returns TSDR stats for a particular cluster member and metric name. Note: TSDR collects stats every 5 seconds. A request to the stats reflector returns all new data points since the last request was made.
+Returns TSDR stats for a particular cluster member and metric name. Note: TSDR collects stats every 5 seconds. A request to the stats reflector returns all new data points since the last request was made. Used in Stats display.
 
 Request URL: `http://localhost:8181/restconf/operations/stats-reflector:get-stats`  
 
@@ -258,7 +258,7 @@ Response:
 ```
 
 ### Shard MBean RPC
-Returns Shard MBean for a particular cluster member, status (operational or config), and shard. API for anomoly stats in Shard display.
+Returns Shard MBean for a particular cluster member, status (operational or config), and shard. API for anomoly stats in Shard display. Used in Shard Display.
 
 Request URL: `http://localhost:8181/restconf/operations/stats-reflector:get-shard-mbean`  
 
@@ -303,7 +303,7 @@ Response:
 ```
 _Anomoly Note 1: PendingTxCommitQueueSize - if this is growing then commits are backing up, either the shard is taking too long to process something or transactions are failing to replicate to the followers (seen both issues). Can be presented in shard display with some sort of visual notification indicating problem._
 
-Anomoly Note2: Under well-behaved operation where commits are replicating to all nodes, LastIndex == LastApplied == CommitIndex == each follower's matchIndex. Also ReplicatedToAllIndex == LastApplied - 1, InMemoryJournalLogSize == 1. However CommitIndex and LastApplied should still progress.
+_Anomoly Note2: Under well-behaved operation where commits are replicating to all nodes, LastIndex == LastApplied == CommitIndex == each follower's matchIndex. Also ReplicatedToAllIndex == LastApplied - 1, InMemoryJournalLogSize == 1. However CommitIndex and LastApplied should still progress._
 
 
 
