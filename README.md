@@ -294,7 +294,7 @@ Response:
     "timestamp": "1471973782",
     "last-applied": 0,
     "last-index": 0,
-    "pending-tx-commit-queue-size": 0, **<-- If this increases there is a problem**
+    "pending-tx-commit-queue-size": 0, __<-- If this increases there is a problem__
     "commit-index": 0,
     "replicated-to-all-index": -1,
     "raft-state": "Leader" <-- he is the leader for inventory shard. Rest are followers.
