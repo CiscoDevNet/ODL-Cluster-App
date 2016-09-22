@@ -2,7 +2,7 @@
 
 ![](clusterapp.png)
 
-Figure 0. netACL Logo
+Figure 0. ODL-Cluster-App Logo
 
 OpenDaylight (ODL) is an open-source application development and delivery platform. ODL nodes can be configured in a cluster so as the provide scalability and resiliency in domains (e.g. IoT network) where it being deployed. The ODL Cluster Application and Console is an app designed to make it much easier for an operator to manage, gather and view configuration and operational data from an ODL cluster.
 
